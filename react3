@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+import './ColorPicker.css';
+
+const ColorPicker = ({ colors }) => {
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [isColorListVisible, setIsColorListVisible] = useState(false);
+
+  const handleColorClick = (color) => {
+    setSelectedColor(color);
+    setIsColorListVisible(false);
+  };
+
+  return (
+    <div className="color-picker-container" style={{ backgroundColor: 'lightpink' }}>
+      <button
+        className="color-picker-button"
+        onClick={() => setIsColorListVisible(!isColorListVisible)}
+        style={{ backgroundColor: selectedColor || 'white' }}
+      >
+        Pick a color
+      </button>
+
+      {isColorListVisible && (
+        <div className="color-list">
+          {colors.map((color, index) => (
+            <div
+              key={index}
+              className="color-option"
+              style={{ backgroundColor: color }}
+              onClick={() => handleColorClick(color)}
+            ></div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ColorPicker;
+
+
+
+
+
+
+
+.color-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.color-picker-button {
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.color-picker-button:hover {
+  opacity: 0.8;
+}
+
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.color-option:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+
+import React from 'react';
+import ColorPicker from './ColorPicker';
+
+const colors = ['red', 'green', 'blue', 'yellow', 'pink', 'orange', 'brown', 'darkgreen', 'mustard'];
+
+const App = () => {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <ColorPicker colors={colors} />
+    </div>
+  );
+};
+
+export default App;

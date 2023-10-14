@@ -1,0 +1,28 @@
+import React from 'react';
+import './App.css';
+
+const App = () => {
+  return (
+    <div className="portfolio-container">
+      <h1 className="portfolio-title">Portfolio</h1>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+.portfolio-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  color: black;
+  padding: 20px;
+}
+
+.portfolio-title {
+  font-weight: bold;
+}

@@ -1,0 +1,96 @@
+import React from 'react';
+import './App.css';
+
+const App = () => {
+  return (
+    <div className="container">
+      <div className="horizontal-rectangle">
+        <div className="vertical-rectangle">
+          <div className="upper-half">
+            <div className="upper-text">25*4</div>
+            <div className="upper-text">7+2</div>
+          </div>
+          <div className="lower-half">
+            <div className="calculator-keyboard">
+              <div className="key">7</div>
+              <div className="key">8</div>
+              <div className="key">9</div>
+              <div className="key">+</div>
+              {/* Add more keys as needed */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.horizontal-rectangle {
+  width: 400px;
+  height: 100px;
+  background-color: lightblue;
+  display: flex;
+}
+
+.vertical-rectangle {
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(to bottom, darkblue 50%, black 50%);
+}
+
+.upper-half {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 50%;
+  padding: 5px;
+}
+
+.upper-text {
+  color: white;
+  font-size: 12px;
+}
+
+.lower-half {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+}
+
+.calculator-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.key {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  background-color: #fff;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.key:hover {
+  background-color: #ccc;
+}
